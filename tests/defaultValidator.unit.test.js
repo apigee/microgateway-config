@@ -66,4 +66,60 @@ describe('default-validator module', () => {
             done();
         };
     });
+
+    it('throws error for invalid quotas type', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: 2})
+        try {
+            defaultValidator.validate(quotas);
+        } catch (err) {
+            assert(err.message.includes('config.quotas is not an object'));
+        }
+        done();
+    });
+
+    it('throws error for invalid quotas key', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: { invalid: {}}})
+        try {
+            defaultValidator.validate(quotas);
+        } catch (err) {
+            assert(err.message.includes('invalid value in config.quotas'));
+        }
+        done();
+    });
+
+    it('throws error for missing quotas bufferSize', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: { default: { }}})
+        try {
+            defaultValidator.validate(quotas);
+        } catch (err) {
+            assert(err.message.includes('default.bufferSize is not a number'));
+        }
+        done();
+    });
+
+    it('throws error for non-number bufferSize', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: { default: { bufferSize: 'over9000' }}})
+        try {
+            defaultValidator.validate(quotas);
+        } catch (err) {
+            assert(err.message.includes('default.bufferSize is not a number'));
+        }
+        done();
+    });
+
+    it('throws error for invalid quotas bufferSize', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: { default: { bufferSize: -1 }}})
+        try {
+            defaultValidator.validate(quotas);
+        } catch (err) {
+            assert(err.message.includes('default.bufferSize must be greater than zero'));
+        }
+        done();
+    });
+
+    it('accepts a valid quota bufferSize', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: { minute: { bufferSize: 1 }}})
+        defaultValidator.validate(quotas);
+        done();
+    });
 });
