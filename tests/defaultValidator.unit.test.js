@@ -112,8 +112,14 @@ describe('default-validator module', () => {
         try {
             defaultValidator.validate(quotas);
         } catch (err) {
-            assert(err.message.includes('default.bufferSize must be greater than zero'));
+            assert(err.message.includes('default.bufferSize must be greater than or equal to zero'));
         }
+        done();
+    });
+
+    it('accepts a zero quota bufferSize', (done) => {
+        const quotas = Object.assign({}, loadedConfig, { quotas: { minute: { bufferSize: 0 }}})
+        defaultValidator.validate(quotas);
         done();
     });
 
