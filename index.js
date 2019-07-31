@@ -42,6 +42,14 @@ module.exports = function(){
        * @param target destination
        */
       return ioInstance.saveSync(config,target)
+    },
+    setConsoleLogger:function(consoleLogger){
+      /**
+       * sets the consoleLogger to ioInstance and networkInstance
+       * @param consoleLogger to use for console logging
+       */
+      ioInstance.setConsoleLogger(consoleLogger);
+      networkInstance.setConsoleLogger(consoleLogger);
     }
   };
 }();
