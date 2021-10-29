@@ -33,7 +33,7 @@ let configlibmockInvalidProxies = proxyquire.load('../index.js', {
 
 describe('config - get ', () => {
     it('gets product updates from server', done => {
-        configlibmockValid.get({ source: './tests/fixtures/load-victorshaw-eval-test-config.yaml', keys: keys }, (err, config) => {
+        configlibmockValid.get({ source: './tests/fixtures/load-dummy-eval-test-config.yaml', keys: keys }, (err, config) => {
             assert(config.product_to_proxy.productOne);
             assert(config.product_to_proxy.productTwo);
             assert(config.product_to_proxy.productThree);
@@ -44,7 +44,7 @@ describe('config - get ', () => {
     it('displays error when receiving invalid JSON product info', (done) => {
         var saveErr = console.error;
         console.error = () => {}
-        configlibmockInvalidProducts.get({ source: './tests/fixtures/load-victorshaw-eval-test-config.yaml', keys: keys }, (err, config) => {
+        configlibmockInvalidProducts.get({ source: './tests/fixtures/load-dummy-eval-test-config.yaml', keys: keys }, (err, config) => {
             console.error = saveErr;
             assert.equal(err instanceof Error, true);
             assert.equal(err.message.includes('CRITICAL ERROR: error parsing downloaded product list'), true);
@@ -55,9 +55,16 @@ describe('config - get ', () => {
     it('displays error when receiving invalid JSON proxy info', (done) => {
         var saveErr = console.error;
         console.error = () => {}
-        configlibmockInvalidProxies.get({ source: './tests/fixtures/load-victorshaw-eval-test-config.yaml', keys: keys }, (err, config) => {
+        configlibmockInvalidProxies.get({ source: './tests/fixtures/load-dummy-eval-test-config.yaml', keys: keys }, (err, config) => {
             console.error = saveErr;
             assert.equal(err instanceof Error, true);
+            done();
+        });
+    });
+
+    it('gets extauth public key updates from server', done => {
+        configlibmockValid.get({ source: './tests/fixtures/load-dummy-eval-test-config.yaml', keys: keys }, (err, config) => {
+            assert(config.extauth.public_keys);
             done();
         });
     });

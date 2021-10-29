@@ -116,7 +116,7 @@ var certificate =
 
 module.exports = {
   get: function(options, callback) {
-    var config = io.loadSync({source:'./tests/fixtures/load-victorshaw-eval-test-config.yaml'});
+    var config = io.loadSync({source:'./tests/fixtures/load-dummy-eval-test-config.yaml'});
     // console.log('options-get', options);
     
     switch(options.url) {
@@ -126,6 +126,8 @@ module.exports = {
         return callback(null, {statusCode: 200,statusMessage:'OK'}, JSON.stringify(certificate));
       case config.edge_config.products:
         return callback(null, {statusCode: 200,statusMessage:'OK'}, products);
+      case config.extauth.publickey_url:
+        return callback(null,null)
       default:
         return callback(new Error(`incorrect url: ${options.url}`));
     }

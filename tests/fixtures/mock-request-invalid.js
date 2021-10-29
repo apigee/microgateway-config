@@ -116,7 +116,7 @@ var certificate =
 
 module.exports = {
   get: function(options, callback) {
-    var config = io.loadSync({source:'./tests/fixtures/load-victorshaw-eval-test-config.yaml'});
+    var config = io.loadSync({source:'./tests/fixtures/load-dummy-eval-test-config.yaml'});
     switch(options.url) {
       case config.edge_config.bootstrap:
         return callback(null, {statusCode: 200}, JSON.stringify(proxies));

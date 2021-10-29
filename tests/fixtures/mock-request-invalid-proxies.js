@@ -114,9 +114,30 @@ var certificate =
   6En2+3By8LI=
   -----END CERTIFICATE-----`;
 
+  var extauthPublicKey = `{
+    "keys": [
+      {
+        "kty": "RSA",
+        "alg": "RS256",
+        "kid": "A-bHGq5lA1IhAlWfQ2I2yRuD385x_VRozLzMKvYBSkYxx",
+        "use": "sig",
+        "e": "AQAB",
+        "n": "qtiq0ol6h96vpnsiKobAoeyJcyzR3ys5SbdCce6MvDEssCW63vi7d1hgexMblGP-eIExn-9DgCxRI9FjoGTPJW_ysMOWHYtp3HDtmpgUuwYA4qeOWXJ0uR17WpSjQ6VgXq2MtQA03sgLq4d5TdME4XYQcomIaiwIqS9L4oOWbX2nsTlr69B5e-8GfeXy0WMxm79YQMUYrYsNPAykgGOSimngo2MiYfWcDbxU_C1ZndaIUWtSrciI1CMA-xHLn4YueElMnX0Yc3bdPUfqf4JMtqcyx6u9ZnIYfdWLw_kLbhp6bK9bdkiQAGnlBjf1nLMPUSAVOUU4eMQkLoEWGdC4Ha2TQ"
+      },
+      {
+        "kty": "RSA",
+        "alg": "RS"256",
+        "kid": "jwxCUVWY_FYkBMKXqiWZt_hkU3vJzV_FQ27QINaxfNAyy",
+        "use": "sig",
+        "e": "AQAB",
+        "n": "rtsrk2LKCqNzQl5VuN0iLT7wBekr6KAQt48Vdbd0B_tOE-SC-91VHpPZabRCMqy3KR84NSVsVNk8ZGC8yXd0nxxqC4Tx_xVZu5xfVWuaWEy2K5c-xcrdL21NLlwONVN6YYEOzc2lFBu_7kBsyKAJ3nKSo5su-VMPim-s7_Bu9_exDtSclD4UfrzI8jmW8lXlrcLUE-1K35tuqRvZ03wtP-KjgqcpMgVNYQepZ34itrVB8M1ekHS2QefQe2ddG-V8ADV3bWuzSgQaaQH_RmM0H6W8h1mzGjz-DRhTmdN915ZdWdCkd9567NaKCtxKQnAicllH34UptQ0w0DWIQ8kY9skHw"
+      }
+    ]
+  }`
+
 module.exports = {
   get: function(options, callback) {
-    var config = io.loadSync({source:'./tests/fixtures/load-victorshaw-eval-test-config.yaml'});
+    var config = io.loadSync({source:'./tests/fixtures/load-dummy-eval-test-config.yaml'});
     switch(options.url) {
       case config.edge_config.bootstrap:
         return callback(null, {statusCode: 200}, proxies);
@@ -124,6 +145,8 @@ module.exports = {
         return callback(null, {statusCode: 200}, JSON.stringify(certificate));
       case config.edge_config.products:
         return callback(null, {statusCode: 200}, JSON.stringify(products));
+      case config.extauth.publickey_url:
+        return callback(null, {statusCode: 200}, extauthPublicKey)
       default:
         return callback(new Error(`incorrect url: ${options.url}`));
     }
