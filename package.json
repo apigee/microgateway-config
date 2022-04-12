@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "apigeetool": "^0.15.1",
-    "async": "^1.5.2",
+    "async": "^3.2.2",
     "body-parser": "^1.15.0",
     "config": "^1.19.0",
     "debug": "^3.1.0",

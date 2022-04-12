@@ -10,7 +10,7 @@
       "license": "Apache-2.0",
       "dependencies": {
         "apigeetool": "^0.15.1",
-        "async": "^1.5.2",
+        "async": "^3.2.2",
         "body-parser": "^1.15.0",
         "config": "^1.19.0",
         "debug": "^3.1.0",
@@ -667,6 +667,11 @@
         "apigeetool": "lib/cli.js"
       }
     },
+    "node_modules/apigeetool/node_modules/async": {
+      "version": "1.5.2",
+      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
+      "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+    },
     "node_modules/apigeetool/node_modules/fs-extra": {
       "version": "4.0.3",
       "resolved": "https://registry.npmjs.org/fs-extra/-/fs-extra-4.0.3.tgz",
@@ -746,9 +751,9 @@
       }
     },
     "node_modules/async": {
-      "version": "1.5.2",
-      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
-      "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+      "version": "3.2.2",
+      "resolved": "https://registry.npmjs.org/async/-/async-3.2.2.tgz",
+      "integrity": "sha512-H0E+qZaDEfx/FY4t7iLRv1W2fFI6+pyCeTw1uN20AQPiwqwM6ojPxHxdLv4z8hi2DtnW9BOckSspLucW7pIE5g=="
     },
     "node_modules/asynckit": {
       "version": "0.4.0",
@@ -5685,6 +5690,11 @@
         "underscore": "^1.8.3"
       },
       "dependencies": {
+        "async": {
+          "version": "1.5.2",
+          "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
+          "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+        },
         "fs-extra": {
           "version": "4.0.3",
           "resolved": "https://registry.npmjs.org/fs-extra/-/fs-extra-4.0.3.tgz",
@@ -5754,9 +5764,9 @@
       "dev": true
     },
     "async": {
-      "version": "1.5.2",
-      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
-      "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+      "version": "3.2.2",
+      "resolved": "https://registry.npmjs.org/async/-/async-3.2.2.tgz",
+      "integrity": "sha512-H0E+qZaDEfx/FY4t7iLRv1W2fFI6+pyCeTw1uN20AQPiwqwM6ojPxHxdLv4z8hi2DtnW9BOckSspLucW7pIE5g=="
     },
     "asynckit": {
       "version": "0.4.0",
