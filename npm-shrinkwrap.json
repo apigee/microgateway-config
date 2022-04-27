@@ -10,7 +10,7 @@
       "license": "Apache-2.0",
       "dependencies": {
         "apigeetool": "^0.15.1",
-        "async": "^1.5.2",
+        "async": "^2.6.4",
         "body-parser": "^1.15.0",
         "config": "^1.19.0",
         "debug": "^3.1.0",
@@ -667,6 +667,11 @@
         "apigeetool": "lib/cli.js"
       }
     },
+    "node_modules/apigeetool/node_modules/async": {
+      "version": "1.5.2",
+      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
+      "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+    },
     "node_modules/apigeetool/node_modules/fs-extra": {
       "version": "4.0.3",
       "resolved": "https://registry.npmjs.org/fs-extra/-/fs-extra-4.0.3.tgz",
@@ -746,9 +751,12 @@
       }
     },
     "node_modules/async": {
-      "version": "1.5.2",
-      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
-      "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+      "version": "2.6.4",
+      "resolved": "https://registry.npmjs.org/async/-/async-2.6.4.tgz",
+      "integrity": "sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==",
+      "dependencies": {
+        "lodash": "^4.17.14"
+      }
     },
     "node_modules/asynckit": {
       "version": "0.4.0",
@@ -5685,6 +5693,11 @@
         "underscore": "^1.8.3"
       },
       "dependencies": {
+        "async": {
+          "version": "1.5.2",
+          "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
+          "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+        },
         "fs-extra": {
           "version": "4.0.3",
           "resolved": "https://registry.npmjs.org/fs-extra/-/fs-extra-4.0.3.tgz",
@@ -5754,9 +5767,12 @@
       "dev": true
     },
     "async": {
-      "version": "1.5.2",
-      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz",
-      "integrity": "sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo="
+      "version": "2.6.4",
+      "resolved": "https://registry.npmjs.org/async/-/async-2.6.4.tgz",
+      "integrity": "sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==",
+      "requires": {
+        "lodash": "^4.17.14"
+      }
     },
     "asynckit": {
       "version": "0.4.0",
