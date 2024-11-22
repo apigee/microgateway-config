@@ -25,7 +25,7 @@ const customFilename = 'customFilename.yaml';
 const defaultDirCustomFilename = path.join(defaultDir, customFilename);
 let customFixtureDirPath = path.join(fixtureDirectory, defaultOrgEnvFilename);
 let customFixtureDirFilePath = path.join(fixtureDirectory, customFilename);
-const uuid = require('uuid');
+const { v4: uuid } = require('uuid');
 let apigeeUtils = require('volos-util-apigee');
 let asdfFilePath = path.join(fixtureDirectory, 'asdf.yaml');
 
@@ -38,7 +38,7 @@ let opts = {
     mapName: 'microgateway',
     api: 'edgemicro_auth'
 };
-let newProdName = `EdgeMicroJSON${uuid.v1().substring(0, 8)}`;
+let newProdName = `EdgeMicroJSON${uuid().substring(0, 8)}`;
 
 let newProd = Object.assign({}, opts, {
     productName: newProdName,
@@ -47,7 +47,7 @@ let newProd = Object.assign({}, opts, {
     environments: env
 });
 
-let newErrProdName = `EdgeMicroPOISON${uuid.v1().substring(0, 8)}`;
+let newErrProdName = `EdgeMicroPOISON${uuid().substring(0, 8)}`;
 
 let errProd = Object.assign({}, opts, {
     productName: newErrProdName,
