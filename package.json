@@ -28,12 +28,12 @@
     "test:integration": "nyc mocha tests/*.integration.test.js --timeout 60000"
   },
   "devDependencies": {
-    "chai": "^2.3.0",
-    "eslint": "^8.56.0",
-    "eslint-config-google": "^0.13.0",
+    "chai": "^5.2.0",
+    "eslint": "^9.22.0",
+    "eslint-config-google": "^0.14.0",
     "jshint-stylish": "^2.2.1",
-    "mocha": "^11.0.1",
-    "nyc": "^15.1.0",
-    "proxyquire": "^1.7.10"
+    "mocha": "^11.1.0",
+    "nyc": "^17.1.0",
+    "proxyquire": "^2.1.3"
   }
 }
